@@ -15,7 +15,13 @@ const squareEls = document.querySelector("board")
 const messageEl = document.getElementById("message")
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+//4c) In the `updateBoard` function, loop over `board` and for each element:
+  //     - Use the current index of the iteration to access the corresponding 
+  //       square in the `squareEls` array.
+  //     - Style that square however you wish, dependent on the value  
+  //       contained in the current cell being iterated over (`-1`, `1`, or
+  //       `null`). To keep it simple, start with just putting a letter in 
+  //       each square depending on what the the value of each cell is.
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -28,7 +34,13 @@ function render() {
     
 }
 
-function updateBoard () {
+function updateBoard (board) {
+    for (i = 0; i < board.length + 1; i++) {
+        if (board[i] === null) {
+        console.log(board[i]);
+        }
+
+    } 
 
 }
 
