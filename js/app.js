@@ -11,7 +11,7 @@ let tie = false
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelector("board")
+const squareEls = document.querySelectorAll(".sqr")
 const messageEl = document.getElementById("message")
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -34,15 +34,19 @@ function render() {
     
 }
 
-function updateBoard (board) {
-    for (i = 0; i < board.length + 1; i++) {
-        if (board[i] === null) {
-        console.log(board[i]);
-        }
+function updateBoard() {
+    board.forEach((piece, idx) => {
+      console.log(board);
+      if (piece === 1) {
+        squareEls[idx].textContent = "X"
+      } else if (piece === -1) {
+        squareEls[idx].textContent = "O"
+      }
+                                  }
+                 )
+        
+      }
 
-    } 
-
-}
 
 // **Step 1 - Define the required variables used to track the state of the game
 
@@ -90,7 +94,7 @@ function updateBoard (board) {
 
   // **4b) Create a function called `updateBoard`.
 
-  // 4c) In the `updateBoard` function, loop over `board` and for each element:
+  // **4c) In the `updateBoard` function, loop over `board` and for each element:
   //     - Use the current index of the iteration to access the corresponding 
   //       square in the `squareEls` array.
   //     - Style that square however you wish, dependent on the value  
