@@ -14,16 +14,6 @@ let tie = false
 const squareEls = document.querySelectorAll(".sqr")
 const messageEl = document.getElementById("message")
 
-/*----------------------------- Event Listeners -----------------------------*/
-//4c) In the `updateBoard` function, loop over `board` and for each element:
-  //     - Use the current index of the iteration to access the corresponding 
-  //       square in the `squareEls` array.
-  //     - Style that square however you wish, dependent on the value  
-  //       contained in the current cell being iterated over (`-1`, `1`, or
-  //       `null`). To keep it simple, start with just putting a letter in 
-  //       each square depending on what the the value of each cell is.
-
-
 /*-------------------------------- Functions --------------------------------*/
 
 window.onload = function init() {
@@ -31,7 +21,8 @@ window.onload = function init() {
 }
 
 function render() {
-    
+    updateBoard()
+    updateMessage()
 }
 
 function updateBoard() {
@@ -41,14 +32,30 @@ function updateBoard() {
         squareEls[idx].textContent = "X"
       } else if (piece === -1) {
         squareEls[idx].textContent = "O"
+      } else if (piece === null) {
+        squareEls[idx].textContent = ""
       }
                                   }
-                 )
-        
+                 )       
       }
 
+function updateMessage() {
+  if (winner = false && tie === false) {
+    console.log("It is the turn of ${turn}.")
+  } else if (winner === false && tie === true) {
+    console.log("It is a tie.")
+  } console.log("Congratulations Player ${turn}.")
+}
 
-// **Step 1 - Define the required variables used to track the state of the game
+
+
+
+
+
+
+
+
+  // **Step 1 - Define the required variables used to track the state of the game
 
 //   **1a) Use a variable named `board` to represent the state of the squares on
 //       the board.
@@ -102,9 +109,9 @@ function updateBoard() {
   //       `null`). To keep it simple, start with just putting a letter in 
   //       each square depending on what the the value of each cell is.
 
-  // 4d) Create a function called `updateMessage`
+  // **4d) Create a function called `updateMessage`
   
-  // 4e) In the `updateMessage` function, render a message based on the 
+  // **4e) In the `updateMessage` function, render a message based on the 
   //     current game state:
   //     - If both `winner` and `tie` have a value of false (meaning the game 
   //       is still in progress), render whose turn it is.
@@ -112,7 +119,7 @@ function updateBoard() {
   //     - Otherwise, render a congratulatory message to the player that has 
   //       won.
 
-  // 4f) Invoke both the `updateBoard` and the `updateMessage` functions
+  // **4f) Invoke both the `updateBoard` and the `updateMessage` functions
   //     inside of your `render` function.
 
 // Step 5 - Define the required constants
