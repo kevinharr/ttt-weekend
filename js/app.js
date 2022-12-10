@@ -48,9 +48,9 @@ function updateBoard() {
       } else if (element === null) {
         squareEls[index].textContent = ""
       }
-                                  }
-                 )       
       }
+    )       
+}
 
 function updateMessage() {
   if (winner = false && tie === false) {
@@ -68,24 +68,26 @@ function handleClick(evt) {
   if (board[Number(sqIdx)] !== null) {
     return
   } 
-  console.log("fire")
-  //else if (winner === true) {
-    //return
+  //console.log("fire")
+  else if (winner === true) {
+    return
+  }
 }
 
+function placePiece(index) {
+  board[i] = turn
+}
 
-//   } 
-// }
+function checkForTie() {
+  board.forEach(function(item) {
+    if (item !== null)
+    tie = true
+  })
+}
 
-
-//[12, 5, 8, 1, 4].some((x) => x > 10); // true
-
-
-
-
-
-//console.log("Here is my square index:", sqIdx)
-
+function checkForWinner() {
+  
+}
 function attachingListeners() {
   for (i = 0; i < 9; i++) {
     squareEls[i].addEventListener('click', handleClick)
