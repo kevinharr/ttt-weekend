@@ -62,8 +62,42 @@ function updateMessage() {
 }
 
 function handleClick(evt) {
-  
+
+
 }
+
+const boardContainer = document.querySelector(".board")
+
+boardContainer.addEventListener('click', handleClick)
+
+const sqIdx = []
+
+
+
+// /<body>
+// <div id="container">
+//   <button>Click me!</button>
+// </div>
+// <pre id="output"></pre>
+// </body>
+// */
+
+// const output = document.querySelector('#output');
+// function handleClick(e) {
+//   output.textContent += `You clicked on a ${e.currentTarget.tagName} element\n`;
+// }
+
+// const container = document.querySelector('#container');
+// const button = document.querySelector('button');
+
+// document.body.addEventListener('click', handleClick);
+// container.addEventListener('click', handleClick);
+// button.addEventListener('click', handleClick);
+
+/* <section class="board">
+		<div class="sqr" id="sq0"></div> */
+
+
 
 
 
@@ -138,9 +172,9 @@ function handleClick(evt) {
   // **4f) Invoke both the `updateBoard` and the `updateMessage` functions
   //     inside of your `render` function.
 
-// Step 5 - Define the required constants
+// **Step 5 - Define the required constants
 
-  // 5a) In a constant called `winningCombos` define the eight possible winning 
+  // **5a) In a constant called `winningCombos` define the eight possible winning 
   //     combinations as an array of arrays.
 
 
