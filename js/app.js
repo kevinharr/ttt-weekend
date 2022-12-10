@@ -1,9 +1,18 @@
 /*-------------------------------- Constants --------------------------------*/
-
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [6, 4, 2],
+]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board = [null, null, null, null, null, null, null, null, null]
+let board = [1, null, null, null, null, null, null, null, null]
 let turn = 1
 let winner = false
 let tie = false
@@ -14,10 +23,15 @@ let tie = false
 const squareEls = document.querySelectorAll(".sqr")
 const messageEl = document.getElementById("message")
 
+//console.log("squares in the game" , squareEls[6]);
+
 /*-------------------------------- Functions --------------------------------*/
 
-window.onload = function init() {
-    render
+window.onload = init()
+
+function init() {
+  //console.log("sanity check")
+  render()
 }
 
 function render() {
@@ -26,14 +40,14 @@ function render() {
 }
 
 function updateBoard() {
-    board.forEach((piece, idx) => {
-      console.log(board);
-      if (piece === 1) {
-        squareEls[idx].textContent = "X"
-      } else if (piece === -1) {
-        squareEls[idx].textContent = "O"
-      } else if (piece === null) {
-        squareEls[idx].textContent = ""
+    board.forEach((element, index) => {
+      if (element === 1) {
+        console.log("showing element", element)
+        squareEls[index].textContent = "X"
+      } else if (element === -1) {
+        squareEls[index].textContent = "O"
+      } else if (element === null) {
+        squareEls[index].textContent = ""
       }
                                   }
                  )       
@@ -47,7 +61,9 @@ function updateMessage() {
   } console.log("Congratulations Player ${turn}.")
 }
 
-
+function handleClick(evt) {
+  
+}
 
 
 
