@@ -23,7 +23,7 @@ let tie = false
 const squareEls = document.querySelectorAll(".sqr")
 const messageEl = document.getElementById("message")
 
-//console.log("squares in the game" , squareEls[6]);
+//console.log("squares in the game" , squareEls);
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -41,8 +41,7 @@ function render() {
 
 function updateBoard() {
     board.forEach((element, index) => {
-      if (element === 1) {
-        console.log("showing element", element)
+      if (element === 1) {   
         squareEls[index].textContent = "X"
       } else if (element === -1) {
         squareEls[index].textContent = "O"
@@ -62,17 +61,34 @@ function updateMessage() {
 }
 
 function handleClick(evt) {
-
-
+  console.log("Square clicks give me this:", evt.target.id.replace("sq", ""))
+  //sqIdx.push(evt.target.slice(8))
 }
 
-const boardContainer = document.querySelector(".board")
+//console.log("Here is my square index:", sqIdx)
+function attachingListeners() {
+  for (i = 0; i < 9; i++) {
+    squareEls[i].addEventListener('click', handleClick)
+    //console.log("What a square is:", squareEls[i])
+  }   
+}
 
-boardContainer.addEventListener('click', handleClick)
 
-const sqIdx = []
+attachingListeners()
 
+// console.dir("component of an event", evt.target.id)
 
+// const boardContainer = document.querySelector("section")
+
+// boardContainer.addEventListener('click', handleClick)
+
+//const sqIdx = []
+
+// const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+// console.log(animals.slice(2));
+
+// expected output: Array ["camel", "duck", "elephant"]
 
 // /<body>
 // <div id="container">
