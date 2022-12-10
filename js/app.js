@@ -61,9 +61,24 @@ function updateMessage() {
 }
 
 function handleClick(evt) {
-  console.log("Square clicks give me this:", evt.target.id.replace("sq", ""))
-  //sqIdx.push(evt.target.slice(8))
+  //console.log("Square clicks give me this:", evt.target.id.replace("sq", ""))
+  let stringNumber = evt.target.id.replace("sq", "")
+  //Number(stringNumber)
+  sqIdx.push(stringNumber)
+  
+  //console.log("this is stringNumber as a number", Number(stringNumber))
+  //console.log("type of element:", typeof(Number(stringNumber)))
+  //console.log("stringNumber is:", stringNumber)
+  //let stringNumber = sqIdx.push(evt.target.id.replace("sq", ""))
+  //let conversionSqIdx = Number(stringNumber)
+  //console.log("sqIdx now:", sqIdx)
+  //if (board[sqIdx])
+  //console.log("board index number:", board[sqIdx])
+  
 }
+
+let x = "123"
+console.log("converting strings to number:", Number(x))
 
 //console.log("Here is my square index:", sqIdx)
 function attachingListeners() {
@@ -72,8 +87,6 @@ function attachingListeners() {
     //console.log("What a square is:", squareEls[i])
   }   
 }
-
-
 attachingListeners()
 
 // console.dir("component of an event", evt.target.id)
@@ -82,7 +95,9 @@ attachingListeners()
 
 // boardContainer.addEventListener('click', handleClick)
 
-//const sqIdx = []
+const sqIdx = []
+
+console.log("Here is my square index:", sqIdx)
 
 // const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 
