@@ -12,7 +12,7 @@ const winningCombos = [
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board = [1, null, null, null, null, null, null, null, null]
+let board = [1, 1, 1, null, null, null, null, null, null]
 let turn = 1
 let winner = false
 let tie = false
@@ -32,6 +32,7 @@ window.onload = init()
 function init() {
   //console.log("sanity check")
   render()
+  checkForWinner()
 }
 
 function render() {
@@ -98,11 +99,20 @@ function checkForTie() {
 
 
 function checkForWinner() {
-  for (i = 0; i < 9; i++) {
-    if (board[i]winningCombos[i][]
+  console.log("check for winner won") 
+  console.log("winner value before:", winner);
+  for (let i = 0; i < winningCombos.length; i++) {
+    for (let c = 0; c < 3; c++) {
+      let sum =+ board[winningCombos[i][c]]
+      if (Math.abs(sum) === 3)  {
+        winner = true
+      }
+    }   
   }
-
+  console.log("winner value after:", winner);
 }
+
+
 function attachingListeners() {
   for (i = 0; i < 9; i++) {
     squareEls[i].addEventListener('click', handleClick)
