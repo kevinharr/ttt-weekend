@@ -16,6 +16,7 @@ let turn = 1
 let winner = false
 let tie = false
 
+
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.querySelectorAll(".sqr")
@@ -27,9 +28,13 @@ const resetBtnEl = document.getElementById("reset-button")
 window.onload = init()
 
 function init() {
-  render()
-  checkForWinner()
+  board = [null, null, null, null, null, null, null, null, null]
+  turn = 1
+  winner = false
+  tie = false
+
   attachingListeners()
+  render()
 }
 
 function render() {
@@ -68,11 +73,11 @@ function updateMessage() {
     PlayerSelected = PlayerTwo
   }
   if (winner === false && tie === false) {
-    messageEl.textContent = `It is the turn of ${PlayerSelected}`
+    messageEl.textContent = `It is the turn of ${PlayerSelected}.`
   } else if (winner === false && tie === true) {
-    messageEl.textContent = "It is a tie"
+    messageEl.textContent = "It is a tie."
   } else if (winner === true && tie === false) {
-    messageEl.textContent = `The winner is ${PlayerSelected}`
+    messageEl.textContent = `The winner is ${PlayerSelected}.`
   }
 }
 
