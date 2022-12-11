@@ -73,6 +73,10 @@ function handleClick(evt) {
   else if (winner === true) {
     return
   }
+  placePiece(sqIdx)
+  checkForTie
+  checkForWinner
+  switchPlayerTurn
 }
 
 function placePiece(index) {
