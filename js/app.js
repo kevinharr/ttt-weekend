@@ -12,7 +12,7 @@ const winningCombos = [
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board = [1, 1, 1, null, null, null, null, null, null]
+let board = [null, null, null, null, null, null, null, null, null]
 let turn = 1
 let winner = false
 let tie = false
@@ -76,7 +76,7 @@ function handleClick(evt) {
 }
 
 function placePiece(index) {
-  board[i] = turn
+  board[index] = turn
 }
 
 function checkForTie() {
@@ -85,19 +85,6 @@ function checkForTie() {
     tie = true
   })
 }
-
-// const winningCombos = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [6, 4, 2],
-// ]
-
-
 function checkForWinner() {
   console.log("check for winner won") 
   console.log("winner value before:", winner);
@@ -112,6 +99,12 @@ function checkForWinner() {
   console.log("winner value after:", winner);
 }
 
+function switchPlayerTurn() {
+  if ( winner === true) {
+    return
+  } else 
+  turn = turn * -1
+}
 
 function attachingListeners() {
   for (i = 0; i < 9; i++) {
